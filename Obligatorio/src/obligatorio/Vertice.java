@@ -1,3 +1,4 @@
+package obligatorio;
 import java.util.ArrayList;
 
 /*
@@ -6,6 +7,7 @@ import java.util.ArrayList;
  * Por tanto, la existencia de esta no permite vértices duplicados
  * El array de lista vecindad contiene las aristas incidentes al vértice
 */
+
 
 
 public class Vertice

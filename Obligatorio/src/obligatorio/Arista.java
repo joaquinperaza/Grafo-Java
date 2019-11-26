@@ -3,7 +3,7 @@
  * entre dos vértices. Por tanto una arista tiene dos vértices.
  * Si el peso de una arista no se especifica, su valor es 1. Esto permite representar grafos uniformes.
 */
-
+package obligatorio;
 public class Arista implements Comparable<Arista>
 {
     private Vertice vertice1, vertice2;

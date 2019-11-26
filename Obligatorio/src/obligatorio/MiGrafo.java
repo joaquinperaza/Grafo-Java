@@ -24,7 +24,7 @@ public class MiGrafo{
 	    }
 
 	System.out.println();
-
+        
 	miGrafo.insertarArista(vertices[0], vertices[1], 3); // A -> B
 	miGrafo.insertarArista(vertices[0], vertices[2], 3); // A -> C
 	miGrafo.insertarArista(vertices[1], vertices[2], 1); // B -> C
