@@ -1,3 +1,4 @@
+package obligatorio;
 import java.util.*;
 
 /* 
@@ -69,22 +70,22 @@ public class Grafo{
      * @param peso. Coste para llegar de v1 a v2 o viceversa
      * @return true. Si y solo si la arista no existe previamente
      **/
-    public boolean insertarArista(Vertice v1, Vertice v2, int peso)
+    public Arista insertarArista(Vertice v1, Vertice v2, int peso)
     {
 	if(v1.equals(v2)) //vertices identicos?
-	    return false;
+	    return null;
 
 	Arista arista = new Arista(v1, v2, peso);
 
 	if(aristas.containsKey(arista.hashCode())) //arista ya está en el grafo?
-	    return false;
+	    return null;
 	else if( v1.contieneUnVecino(arista) || v2.contieneUnVecino(arista)) //arista ya une a v1 o v2?
-	    return false;
+	    return null;
 
 	aristas.put(arista.hashCode(), arista);
 	v1.insertarVecino(arista);
 	//v2.insertarVecino(arista); para dar direccion
-	return true;
+	return arista;
     }
 
     /** 
