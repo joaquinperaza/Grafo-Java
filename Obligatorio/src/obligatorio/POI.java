@@ -10,23 +10,11 @@ package obligatorio;
  * @author Joaquin Peraza
  */
 public class POI {
-    private String name;
+    
     private Arista cuadra;
     private Vertice esquina_mas_cercana;
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+    
 
     /**
      * @return the cuadra

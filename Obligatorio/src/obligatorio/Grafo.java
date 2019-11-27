@@ -52,9 +52,15 @@ public class Grafo{
      * @param v2. Otro extremo de la arista
      * @return true. Si y solo si la arista no existe previamente
      **/
-    public boolean insertarArista(Vertice v1, Vertice v2)
+    public Arista insertarArista(Vertice v1, Vertice v2)
     {
-      	return insertarArista(v1, v2, 1);
+    return insertarArista(v1, v2, 1);
+    }
+    public void buscarRuta(POI a, POI b){
+    int d1= dijstra(a.getCuadra().getVertice1(),b.getCuadra().getVertice1());
+    int d2= dijstra(a.getCuadra().getVertice1(),b.getCuadra().getVertice2());
+    int d3= dijstra(a.getCuadra().getVertice2(),b.getCuadra().getVertice1());
+    int d4= dijstra(a.getCuadra().getVertice2(),b.getCuadra().getVertice2());
     }
 
     
