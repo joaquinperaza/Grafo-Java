@@ -56,6 +56,11 @@ public class Grafo{
     {
     return insertarArista(v1, v2, 1);
     }
+
+    public int dijstra(Vertice a, Vertice b){
+
+    }
+
     public void buscarRuta(POI a, POI b){
     int d1= dijstra(a.getCuadra().getVertice1(),b.getCuadra().getVertice1());
     int d2= dijstra(a.getCuadra().getVertice1(),b.getCuadra().getVertice2());
@@ -200,6 +205,10 @@ public class Grafo{
     public Set<Arista> getAristas()
     {
 	return new HashSet<Arista>(this.aristas.values());
+    }
+    public Set<Vertice> getVertices()
+    {
+    return new HashSet<Vertice>(this.vertices.values());
     }
     
 }
