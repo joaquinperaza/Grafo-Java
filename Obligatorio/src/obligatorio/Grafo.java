@@ -91,12 +91,12 @@ public class Grafo{
 
 	if(aristas.containsKey(arista.hashCode())) //arista ya está en el grafo?
 	    return null;
-	else if( v1.contieneUnVecino(arista) || v2.contieneUnVecino(arista)) //arista ya une a v1 o v2?
+	else if( v1.contieneUnVecino(arista)) //arista ya une a v1 o v2?
 	    return null;
 
 	aristas.put(arista.hashCode(), arista);
 	v1.insertarVecino(arista);
-	//v2.insertarVecino(arista); para dar direccion
+	//v2.insertarVecino(arista); //para dar direccion
 	return arista;
     }
 

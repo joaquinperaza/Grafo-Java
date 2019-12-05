@@ -37,11 +37,12 @@ public class Obligatorio {
 	Arista Cuadra1 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Setembrino"), miGrafo.getVertice("Uruguay y Setembrino"), 1);
         Arista Cuadra2 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Setembrino"), miGrafo.getVertice("Uruguay y 33"), 1);
         Arista Cuadra3 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y 33"), miGrafo.getVertice("Charruas y 33"), 1);
+        Arista Cuadra4 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y 33"), miGrafo.getVertice("Charruas y Setembrino"), 1);
         POI Escuela_94 = new POI();
         Escuela_94.setCuadra(Cuadra3);
         Escuela_94.setEsquina_mas_cercana(Cuadra3.getVertice2());
         htPOIxNombre.put("Escuela 94", Escuela_94);
-        Arista Cuadra4 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Setembrino"), miGrafo.getVertice("Charruas y 33"), 1);
+        
         
         //Manzana 2
         miGrafo.insertarVertice(new Vertice("Charruas y Montevideo"), true);
@@ -86,7 +87,7 @@ public class Obligatorio {
          
          Dijkstra d = new Dijkstra(miGrafo);
          d.execute(htPOIxNombre.get("Escuela 94").getEsquina_mas_cercana());
-         LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get("Juaro Motos").getEsquina_mas_cercana());
+         LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get("El Jardin").getEsquina_mas_cercana());
          System.out.println(htPOIxNombre.size());
          System.out.println(miGrafo.getVertices());
          System.out.println(miGrafo.getAristas());
