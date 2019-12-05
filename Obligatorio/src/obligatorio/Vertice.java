@@ -113,7 +113,7 @@ public class Vertice
      */
     public String toString()
     {
-	return "Vertice: " + this.etiqueta;
+	return "Esquina: " + this.etiqueta;
     }
 
 
