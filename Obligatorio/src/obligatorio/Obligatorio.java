@@ -36,7 +36,7 @@ public class Obligatorio {
         //Manzana 1 
 	Arista Cuadra1 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Setembrino"), miGrafo.getVertice("Uruguay y Setembrino"), 1);
         Arista Cuadra2 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Setembrino"), miGrafo.getVertice("Uruguay y 33"), 1);
-        Arista Cuadra3 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Setembrino"), miGrafo.getVertice("Charruas y Setembrino"), 1);
+        Arista Cuadra3 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y 33"), miGrafo.getVertice("Charruas y 33"), 1);
         POI Escuela_94 = new POI();
         Escuela_94.setCuadra(Cuadra3);
         Escuela_94.setEsquina_mas_cercana(Cuadra3.getVertice2());
@@ -44,14 +44,15 @@ public class Obligatorio {
         Arista Cuadra4 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Setembrino"), miGrafo.getVertice("Charruas y 33"), 1);
         
         //Manzana 2
-        vertices[4] = new Vertice("Charruas y Montevideo");
-        vertices[5] = new Vertice("Uruguay y Montevideo");
+        miGrafo.insertarVertice(new Vertice("Charruas y Montevideo"), true);
+        miGrafo.insertarVertice(new Vertice("Montevideo y Uruguay"), true);
         
-        Arista Cuadra5 = miGrafo.insertarArista(vertices[4], vertices[1], 1);
-        Arista Cuadra6 = miGrafo.insertarArista(vertices[4], vertices[5], 1);
+        Arista Cuadra5 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Montevideo"), miGrafo.getVertice("Montevideo y Uruguay"), 1);
+        Arista Cuadra6 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y 33"),miGrafo.getVertice("Montevideo y Uruguay"), 1);
+        Arista Cuadra6_2 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Montevideo"),miGrafo.getVertice("Charruas y 33"), 1);
         POI El_Jardin = new POI();
-        El_Jardin.setCuadra(Cuadra6);
-        El_Jardin.setEsquina_mas_cercana(Cuadra6.getVertice2());
+        El_Jardin.setCuadra(Cuadra5);
+        El_Jardin.setEsquina_mas_cercana(Cuadra5.getVertice2());
         htPOIxNombre.put("El Jardin", El_Jardin);
         
         //Manzana 3 
