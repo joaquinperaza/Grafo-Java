@@ -55,43 +55,34 @@ public class Obligatorio {
         htPOIxNombre.put("El Jardin", El_Jardin);
         
         //Manzana 3 
-        vertices[6] = new Vertice("Charruas y 19 de abril");
-        vertices[7] = new Vertice("Uruguay y 19 de abril");
+        miGrafo.insertarVertice(new Vertice("Charruas y 19 de abril"),true);//6
+        miGrafo.insertarVertice(new Vertice("Uruguay y 19 de abril"),true);//7
         
-        Arista Cuadra7 = miGrafo.insertarArista(vertices[6], vertices[4], 1);
-        Arista Cuadra8 = miGrafo.insertarArista(vertices[5], vertices[7], 1);
+        Arista Cuadra7 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y 19 de abril"), miGrafo.getVertice("Charruas y Montevideo"), 1);
+        Arista Cuadra8 = miGrafo.insertarArista(miGrafo.getVertice("Montevideo y Uruguay"), miGrafo.getVertice("Uruguay y 19 de abril"), 1);
         POI Juaro_motos = new POI();
         Juaro_motos.setCuadra(Cuadra8);
         Juaro_motos.setEsquina_mas_cercana(Cuadra8.getVertice2());
         htPOIxNombre.put("Juaro Motos", Juaro_motos);
-        Arista Cuadra9 = miGrafo.insertarArista(vertices[7], vertices[6], 1);
+        Arista Cuadra9 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y 19 de abril"), miGrafo.getVertice("Charruas y 19 de abril"), 1);
         
         //Manzana 4
-         vertices[10] = new Vertice("Charruas y Herrera");
-         vertices[11] = new Vertice("Uruguay y Herrera");
-         
-         Arista Cuadra10 = miGrafo.insertarArista(vertices[10], vertices[6], 1);
-         Arista Cuadra11 = miGrafo.insertarArista(vertices[10], vertices[11], 1);
-         Arista Cuadra12 = miGrafo.insertarArista(vertices[7], vertices[11], 1);
-
-         
+         miGrafo.insertarVertice(new Vertice("Charruas y Herrera"), true);//10
+         miGrafo.insertarVertice(new Vertice("Uruguay y Herrera"), true);//11
+         Arista Cuadra10 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Herrera"), miGrafo.getVertice("Charruas y 19 de abril"), 1);
+         Arista Cuadra11 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Herrera"), miGrafo.getVertice("Uruguay y Herrera"), 1);
+         Arista Cuadra12 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y 19 de abril"), miGrafo.getVertice("Uruguay y Herrera"), 1);
          //Manzana 5
-         vertices[12] = new Vertice("Herrera y Florida");
-         vertices[13] = new Vertice("Florida y 19 de abril");
-         Arista Cuadra13 = miGrafo.insertarArista(vertices[11], vertices[12], 1);
+         miGrafo.insertarVertice(new Vertice("Herrera y Florida"), true);//12
+         miGrafo.insertarVertice(new Vertice("Florida y 19 de abril"), true);//13
+         Arista Cuadra13 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Herrera"), miGrafo.getVertice("Herrera y Florida"), 1);
         POI ColegioYLiceo_Huerto = new POI();
         ColegioYLiceo_Huerto.setCuadra(Cuadra13);
         ColegioYLiceo_Huerto.setEsquina_mas_cercana(Cuadra13.getVertice2());
         htPOIxNombre.put("Colegio y Liceo Nuestra Señora del Huerto", ColegioYLiceo_Huerto);
-         Arista Cuadra14 = miGrafo.insertarArista(vertices[12], vertices[13], 1);
-         Arista Cuadra15 = miGrafo.insertarArista(vertices[13], vertices[7], 1);
+         Arista Cuadra14 = miGrafo.insertarArista(miGrafo.getVertice("Herrera y Florida"), miGrafo.getVertice("Florida y 19 de abril"), 1);
+         Arista Cuadra15 = miGrafo.insertarArista(miGrafo.getVertice("Florida y 19 de abril"), miGrafo.getVertice("Uruguay y 19 de abril"), 1);
          
-         
-         
-                 
-                 
-         
- 
          Dijkstra d = new Dijkstra(miGrafo);
          d.execute(htPOIxNombre.get("Escuela 94").getEsquina_mas_cercana());
          LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get("Juaro Motos").getEsquina_mas_cercana());
