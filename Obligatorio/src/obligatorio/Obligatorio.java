@@ -26,22 +26,22 @@ public class Obligatorio {
 
 	System.out.println();
         */
-        vertices[0] = new Vertice("Charruas y Setembrino");
-        vertices[1] = new Vertice("Charruas y 33");
-        vertices[2] = new Vertice("Uruguay y Setembrino");
-        vertices[3] = new Vertice("Uruguay y 33");
+        miGrafo.insertarVertice(new Vertice("Charruas y Setembrino"), true);
+        miGrafo.insertarVertice(new Vertice("Charruas y 33"), true);
+        miGrafo.insertarVertice(new Vertice("Uruguay y Setembrino"), true);
+        miGrafo.insertarVertice(new Vertice("Uruguay y 33"), true);
        
         
         
         //Manzana 1 
-		Arista Cuadra1 = miGrafo.insertarArista(vertices[0], vertices[2], 1);
-        Arista Cuadra2 = miGrafo.insertarArista(vertices[2], vertices[3], 1);
-        Arista Cuadra3 = miGrafo.insertarArista(vertices[3], vertices[1], 1);
+	Arista Cuadra1 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Setembrino"), miGrafo.getVertice("Uruguay y Setembrino"), 1);
+        Arista Cuadra2 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Setembrino"), miGrafo.getVertice("Uruguay y 33"), 1);
+        Arista Cuadra3 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Setembrino"), miGrafo.getVertice("Charruas y Setembrino"), 1);
         POI Escuela_94 = new POI();
         Escuela_94.setCuadra(Cuadra3);
         Escuela_94.setEsquina_mas_cercana(Cuadra3.getVertice2());
         htPOIxNombre.put("Escuela 94", Escuela_94);
-        Arista Cuadra4 = miGrafo.insertarArista(vertices[1], vertices[0], 1);
+        Arista Cuadra4 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Setembrino"), miGrafo.getVertice("Charruas y 33"), 1);
         
         //Manzana 2
         vertices[4] = new Vertice("Charruas y Montevideo");
