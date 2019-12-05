@@ -67,7 +67,7 @@ public class MiGrafo{
         POI Juaro_motos = new POI();
         Juaro_motos.setCuadra(Cuadra8);
         Juaro_motos.setEsquina_mas_cercana(Cuadra8.getVertice2());
-        Juaro_motos.setName("Juaro Motos");
+        htPOIxNombre.put("Juaro Motos", Juaro_motos);
         Arista Cuadra9 = miGrafo.insertarArista(vertices[7], vertices[6], 1);
         
         //Manzana 4
