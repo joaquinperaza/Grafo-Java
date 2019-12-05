@@ -96,7 +96,7 @@ public class Grafo{
 
 	aristas.put(arista.hashCode(), arista);
 	v1.insertarVecino(arista);
-	//v2.insertarVecino(arista); para dar direccion
+	//v2.insertarVecino(arista); //para dar direccion
 	return arista;
     }
 

@@ -73,6 +73,7 @@ public class Obligatorio {
          Arista Cuadra10 = miGrafo.insertarArista(vertices[10], vertices[6], 1);
          Arista Cuadra11 = miGrafo.insertarArista(vertices[10], vertices[11], 1);
          Arista Cuadra12 = miGrafo.insertarArista(vertices[7], vertices[11], 1);
+
          
          //Manzana 5
          vertices[12] = new Vertice("Herrera y Florida");
@@ -90,11 +91,14 @@ public class Obligatorio {
                  
                  
          
+ 
          Dijkstra d = new Dijkstra(miGrafo);
-         d.execute(htPOIxNombre.get("El Jardin").getEsquina_mas_cercana());+
+         d.execute(htPOIxNombre.get("Escuela 94").getEsquina_mas_cercana());
          LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get("Juaro Motos").getEsquina_mas_cercana());
          System.out.println(htPOIxNombre.size());
-         System.out.println(d_l.size());
+         System.out.println(miGrafo.getVertices());
+         System.out.println(miGrafo.getAristas());
+         System.out.println(htPOIxNombre.size());
          for (Vertice v : d_l){
              System.out.println(v.getEtiqueta());
         }

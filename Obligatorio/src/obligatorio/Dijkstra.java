@@ -21,7 +21,7 @@ public class Dijkstra {
 
     public Dijkstra(Grafo grafo) {
         // create a copy of the array so that we can operate on this array
-        this.nodos = new ArrayList<Vertice >(grafo.getVertices());
+        this.nodos = new ArrayList<Vertice>(grafo.getVertices());
         this.aristas = new ArrayList<Arista>(grafo.getAristas());
     }
 
@@ -75,7 +75,7 @@ public class Dijkstra {
         return vecinos;
     }
 
-    private Vertice  getMinimum(Set<Vertice > vertexes) {
+    private Vertice  getMinimum(Set<Vertice> vertexes) {
         Vertice  minimum = null;
         for (Vertice  vertex : vertexes) {
             if (minimum == null) {
@@ -106,7 +106,7 @@ public class Dijkstra {
      * This method returns the path from the source to the selected target and
      * NULL if no path exists
      */
-    public LinkedList<Vertice > getPath(Vertice  target) {
+    public LinkedList<Vertice> getPath(Vertice  target) {
         LinkedList<Vertice > path = new LinkedList<Vertice >();
         Vertice  step = target;
         // check if a path exists
