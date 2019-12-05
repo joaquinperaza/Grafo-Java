@@ -50,7 +50,7 @@ public class Obligatorio {
         
         Arista Cuadra5 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Montevideo"), miGrafo.getVertice("Montevideo y Uruguay"), 1);
         Arista Cuadra6 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y 33"),miGrafo.getVertice("Montevideo y Uruguay"), 1);
-        Arista Cuadra6_2 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Montevideo"),miGrafo.getVertice("Charruas y 33"), 1);
+        Arista Cuadra6_2 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Montevideo"),miGrafo.getVertice("Charruas y 33"), 2);
         POI El_Jardin = new POI();
         El_Jardin.setCuadra(Cuadra5);
         El_Jardin.setEsquina_mas_cercana(Cuadra5.getVertice1());
@@ -84,7 +84,8 @@ public class Obligatorio {
         htPOIxNombre.put("Colegio y Liceo Nuestra Señora del Huerto", ColegioYLiceo_Huerto);
          Arista Cuadra14 = miGrafo.insertarArista(miGrafo.getVertice("Herrera y Florida"), miGrafo.getVertice("Florida y 19 de abril"), 1);
          Arista Cuadra15 = miGrafo.insertarArista(miGrafo.getVertice("Florida y 19 de abril"), miGrafo.getVertice("Uruguay y 19 de abril"), 1);
-         
+         System.out.println(miGrafo.getVertices());
+         System.out.println(miGrafo.getAristas());
          Dijkstra d = new Dijkstra(miGrafo);
          d.execute(htPOIxNombre.get("Escuela 94").getEsquina_mas_cercana());
          LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get("El Jardin").getEsquina_mas_cercana());

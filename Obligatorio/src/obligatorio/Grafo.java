@@ -122,7 +122,6 @@ public class Grafo{
     public Arista eliminarArista(Arista arista)
     {
 	arista.getVertice1().eliminarVecino(arista);
-	arista.getVertice2().eliminarVecino(arista);
 	return this.aristas.remove(arista.hashCode());
     }
 
@@ -158,17 +157,6 @@ public class Grafo{
      **/
     public boolean insertarVertice(Vertice vertice, boolean sobreescribeVertice)
     {
-	Vertice actual = this.vertices.get(vertice.getEtiqueta());
-	if(actual != null) //existía previamente?
-	    {
-		if(!sobreescribeVertice)
-		    return false;
-
-		while(actual.getContarVecinos() >= 0)
-		    this.eliminarArista(actual.getVecino(0));
-		
-	    }
-
 	vertices.put(vertice.getEtiqueta(), vertice);
 	return true;
     }

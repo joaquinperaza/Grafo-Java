@@ -30,16 +30,11 @@ public class Arista implements Comparable<Arista>
      **/
     public Arista(Vertice vertice1, Vertice vertice2, int peso)
     {
-	if(vertice1.getEtiqueta().compareTo(vertice2.getEtiqueta()) <= 0)
-	    {
+
 		this.vertice1 = vertice1;
 		this.vertice2 = vertice2;
-	    }
-	else
-	    {
-		this.vertice1 = vertice2;
-		this.vertice2 = vertice1;
-	    }
+	    
+
 
      	this.peso = peso;
 		
