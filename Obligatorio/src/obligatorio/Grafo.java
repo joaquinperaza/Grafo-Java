@@ -58,7 +58,8 @@ public class Grafo{
     }
 
     public int dijstra(Vertice a, Vertice b){
-
+        return 1;
+        
     }
 
     public void buscarRuta(POI a, POI b){

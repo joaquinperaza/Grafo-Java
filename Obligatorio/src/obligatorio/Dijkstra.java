@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class DijkstraAlgorithm {
+public class Dijkstra {
 
     private final List<Vertice> nodos; //ex-vertex|nodes
     private final List<Arista> aristas; // ex-edges
@@ -19,10 +19,10 @@ public class DijkstraAlgorithm {
     private Map<Vertice, Vertice> predecessors;
     private Map<Vertice, Integer> distance;
 
-    public DijkstraAlgorithm(Grafo grafo) {
+    public Dijkstra(Grafo grafo) {
         // create a copy of the array so that we can operate on this array
         this.nodos = new ArrayList<Vertice >(grafo.getVertices());
-        this.aristas = new ArrayList<Edge>(grafo.getAristas());
+        this.aristas = new ArrayList<Arista>(grafo.getAristas());
     }
 
     public void execute(Vertice  source) {
@@ -55,24 +55,24 @@ public class DijkstraAlgorithm {
     }
 
     private int getDistance(Vertice  node, Vertice  target) {
-        for (Arista edge : edges) {
-            if (edge.getSource().equals(node)
-                    && edge.getDestination().equals(target)) {
-                return edge.getWeight();
+        for (Arista edge : aristas) {
+            if (edge.getVertice1().equals(node)
+                    && edge.getVertice2().equals(target)) {
+                return edge.getPeso();
             }
         }
         throw new RuntimeException("Should not happen");
     }
 
     private List<Vertice > getNeighbors(Vertice  node) {
-        List<Vertice > neighbors = new ArrayList<Vertice >();
-        for (Arista edge : edges) {
-            if (edge.getSource().equals(node)
-                    && !isSettled(edge.getDestination())) {
-                neighbors.add(edge.getDestination());
+        List<Vertice > vecinos = new ArrayList<Vertice >();
+        for (Arista edge : aristas) {
+            if (edge.getVertice1().equals(node)
+                    && !isSettled(edge.getVertice2())) {
+                vecinos.add(edge.getVertice2());
             }
         }
-        return neighbors;
+        return vecinos;
     }
 
     private Vertice  getMinimum(Set<Vertice > vertexes) {
