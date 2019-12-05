@@ -52,7 +52,7 @@ public class Obligatorio {
         Arista Cuadra6_2 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Montevideo"),miGrafo.getVertice("Charruas y 33"), 1);
         POI El_Jardin = new POI();
         El_Jardin.setCuadra(Cuadra5);
-        El_Jardin.setEsquina_mas_cercana(Cuadra5.getVertice2());
+        El_Jardin.setEsquina_mas_cercana(Cuadra5.getVertice1());
         htPOIxNombre.put("El Jardin", El_Jardin);
         
         //Manzana 3 
