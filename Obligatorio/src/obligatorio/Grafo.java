@@ -14,6 +14,7 @@ public class Grafo{
 
     private HashMap<String, Vertice> vertices;
     private HashMap<Integer, Arista> aristas;
+    Hashtable <String, POI> htPOIxNombre=new Hashtable<>();
 
     /**
      * Construcción de un grafo vacío
@@ -57,16 +58,18 @@ public class Grafo{
     return insertarArista(v1, v2, 1);
     }
 
-    public int dijstra(Vertice a, Vertice b){
-        return 1;
-        
-    }
 
-    public void buscarRuta(POI a, POI b){
-    int d1= dijstra(a.getCuadra().getVertice1(),b.getCuadra().getVertice1());
-    int d2= dijstra(a.getCuadra().getVertice1(),b.getCuadra().getVertice2());
-    int d3= dijstra(a.getCuadra().getVertice2(),b.getCuadra().getVertice1());
-    int d4= dijstra(a.getCuadra().getVertice2(),b.getCuadra().getVertice2());
+
+    public void buscarRuta(String a, String b){
+        int cuadras=-1;
+        Dijkstra d = new Dijkstra(this);
+        d.execute(htPOIxNombre.get(a).getEsquina_mas_cercana());
+        LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get(b).getEsquina_mas_cercana());
+        for (Vertice v : d_l){
+            System.out.println(v.getEtiqueta());
+            cuadras++;
+        }
+        System.out.println("Cuadras: "+String.valueOf(cuadras));
     }
 
     
@@ -158,6 +161,11 @@ public class Grafo{
     public boolean insertarVertice(Vertice vertice, boolean sobreescribeVertice)
     {
 	vertices.put(vertice.getEtiqueta(), vertice);
+	return true;
+    }
+    public boolean insertarPOI(String nombre,POI a)
+    {
+	htPOIxNombre.put(nombre, a);
 	return true;
     }
 

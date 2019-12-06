@@ -26,8 +26,6 @@ public class Dijkstra {
     }
 
     public void execute(Vertice  source) {
-        System.out.println("||||||||||||||");
-        System.out.println("Partir de: "+source.getEtiqueta());
         settledNodes = new HashSet<Vertice >();
         unSettledNodes = new HashSet<Vertice >();
         distance = new HashMap<Vertice , Integer>();
@@ -40,18 +38,11 @@ public class Dijkstra {
             unSettledNodes.remove(node);
             findMinimalDistances(node);
         }
-        System.out.println("||||||||||||||");
-        System.out.println(unSettledNodes);
-        System.out.println(settledNodes);
-        System.out.println(distance);
-        System.out.println("||||||||||||||");
+
     }
 
     private void findMinimalDistances(Vertice  node) {
         List<Vertice > adjacentNodes = getNeighbors(node);
-        System.out.println("Adyacentes de: "+node.getEtiqueta());
-        System.out.println(adjacentNodes);
-        System.out.println("||||||||2||||||");
         for (Vertice  target : adjacentNodes) {
             if (getShortestDistance(target) > getShortestDistance(node)
                     + getDistance(node, target)) {
