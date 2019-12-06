@@ -8,28 +8,12 @@ public class Obligatorio {
    
     public static void main(String[] args) {
         Grafo miGrafo = new Grafo();
-
-	Vertice [] vertices = new Vertice[49];
-        
-	/*char [] etiquetas = {'Charruas','B','C','D','E','F'};
-	int i = 0;
-	boolean sobreescribe = true;
-	
-	for(i = 0; i < vertices.length; i++)
-	    {
-	    	vertices[i] = new Vertice(Character.toString(etiquetas[i]));
-	     	System.out.println(vertices[i]);	    	
-	    }
-
-	System.out.println();
-        */
+       
         miGrafo.insertarVertice(new Vertice("Charruas y Setembrino"), true);
         miGrafo.insertarVertice(new Vertice("Charruas y 33"), true);
         miGrafo.insertarVertice(new Vertice("Uruguay y Setembrino"), true);
         miGrafo.insertarVertice(new Vertice("Uruguay y 33"), true);
-       
-        
-        
+         
         //Manzana 1 
 	Arista Cuadra1 = miGrafo.insertarArista(miGrafo.getVertice("Charruas y Setembrino"), miGrafo.getVertice("Uruguay y Setembrino"), 1);
         Arista Cuadra2 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Setembrino"), miGrafo.getVertice("Uruguay y 33"), 1);
@@ -39,7 +23,6 @@ public class Obligatorio {
         Escuela_94.setCuadra(Cuadra3);
         Escuela_94.setEsquina_mas_cercana(Cuadra3.getVertice2());
         miGrafo.insertarPOI("Escuela 94", Escuela_94);
-        
         
         //Manzana 2
         miGrafo.insertarVertice(new Vertice("Charruas y Montevideo"), true);
@@ -81,7 +64,6 @@ public class Obligatorio {
         miGrafo.insertarPOI("Colegio y Liceo Nuestra Señora del Huerto", ColegioYLiceo_Huerto);
         Arista Cuadra14 = miGrafo.insertarArista(miGrafo.getVertice("Herrera y Florida"), miGrafo.getVertice("Florida y 19 de abril"), 1);
         Arista Cuadra15 = miGrafo.insertarArista(miGrafo.getVertice("Florida y 19 de abril"), miGrafo.getVertice("Uruguay y 19 de abril"), 1);
-        
         miGrafo.buscarRuta("Escuela 94", "Colegio y Liceo Nuestra Señora del Huerto");
         
     }
