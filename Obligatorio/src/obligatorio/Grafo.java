@@ -25,7 +25,22 @@ public class Grafo{
 	this.aristas = new HashMap<Integer, Arista>();
     }
 
-
+    public List<Object> obtenerListadoPOI(Hashtable<String, POI> ht){
+        List<Object> listadoPOI = new ArrayList();
+        
+        Enumeration e = htPOIxNombre.keys();
+        Object clave;
+        while (e.hasMoreElements()){
+            clave = e.nextElement();
+            listadoPOI.add(clave);
+           
+            
+        }
+    
+    
+        
+    return  listadoPOI;
+    }
     /**
      * Construcción de un grafo que acepta una lista
      * de vertices por parámetro de entrada
@@ -60,16 +75,20 @@ public class Grafo{
 
 
 
-    public void buscarRuta(String a, String b){
+    public List<Object> buscarRuta(String a, String b){
+        List<Object> ListaRecorrido = new ArrayList();
         int cuadras=-1;
         Dijkstra d = new Dijkstra(this);
         d.execute(htPOIxNombre.get(a).getEsquina_mas_cercana());
         LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get(b).getEsquina_mas_cercana());
         for (Vertice v : d_l){
             System.out.println(v.getEtiqueta());
+            ListaRecorrido.add(v.getEtiqueta());
+            
             cuadras++;
         }
         System.out.println("Cuadras: "+String.valueOf(cuadras));
+        return ListaRecorrido;
     }
 
     

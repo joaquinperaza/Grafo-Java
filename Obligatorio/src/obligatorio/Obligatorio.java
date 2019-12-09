@@ -2,11 +2,13 @@ package obligatorio;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Obligatorio {
 
    
     public static void main(String[] args) {
+        
         Grafo miGrafo = new Grafo();
        
         miGrafo.insertarVertice(new Vertice("Charruas y Setembrino"), true);
@@ -65,6 +67,8 @@ public class Obligatorio {
         Arista Cuadra14 = miGrafo.insertarArista(miGrafo.getVertice("Herrera y Florida"), miGrafo.getVertice("Florida y 19 de abril"), 1);
         Arista Cuadra15 = miGrafo.insertarArista(miGrafo.getVertice("Florida y 19 de abril"), miGrafo.getVertice("Uruguay y 19 de abril"), 1);
         miGrafo.buscarRuta("Escuela 94", "Colegio y Liceo Nuestra Señora del Huerto");
+        
+       
         
     }
     
