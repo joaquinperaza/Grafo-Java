@@ -79,8 +79,8 @@ public class Grafo{
         List<Object> ListaRecorrido = new ArrayList();
         int cuadras=-1;
         Dijkstra d = new Dijkstra(this);
-        d.execute(htPOIxNombre.get(a).getEsquina_mas_cercana());
-        LinkedList<Vertice> d_l = d.getPath(htPOIxNombre.get(b).getEsquina_mas_cercana());
+        d.ejecutar(htPOIxNombre.get(a).getEsquina_mas_cercana());
+        LinkedList<Vertice> d_l = d.getRutas(htPOIxNombre.get(b).getEsquina_mas_cercana());
         for (Vertice v : d_l){
             System.out.println(v.getEtiqueta());
             ListaRecorrido.add(v.getEtiqueta());

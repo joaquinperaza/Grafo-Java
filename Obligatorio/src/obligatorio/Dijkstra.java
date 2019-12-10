@@ -14,42 +14,41 @@ public class Dijkstra {
 
     private final List<Vertice> nodos; //ex-vertex|nodes
     private final List<Arista> aristas; // ex-edges
-    private Set<Vertice> settledNodes;
-    private Set<Vertice> unSettledNodes;
-    private Map<Vertice, Vertice> predecessors;
+    private Set<Vertice> colocados;
+    private Set<Vertice> noColocados;
+    private Map<Vertice, Vertice> previos;
     private Map<Vertice, Integer> distance;
 
     public Dijkstra(Grafo grafo) {
-        // create a copy of the array so that we can operate on this array
         this.nodos = new ArrayList<Vertice>(grafo.getVertices());
         this.aristas = new ArrayList<Arista>(grafo.getAristas());
     }
 
-    public void execute(Vertice  source) {
-        settledNodes = new HashSet<Vertice >();
-        unSettledNodes = new HashSet<Vertice >();
+    public void ejecutar(Vertice  source) {
+        colocados = new HashSet<Vertice >();
+        noColocados = new HashSet<Vertice >();
         distance = new HashMap<Vertice , Integer>();
-        predecessors = new HashMap<Vertice , Vertice >();
+        previos = new HashMap<Vertice , Vertice >();
         distance.put(source, 0);
-        unSettledNodes.add(source);
-        while (unSettledNodes.size() > 0) {
-            Vertice  node = getMinimum(unSettledNodes);
-            settledNodes.add(node);
-            unSettledNodes.remove(node);
-            findMinimalDistances(node);
+        noColocados.add(source);
+        while (noColocados.size() > 0) {
+            Vertice  nodo = getMinimum(noColocados);
+            colocados.add(nodo);
+            noColocados.remove(nodo);
+            findMinimalDistances(nodo);
         }
 
     }
 
     private void findMinimalDistances(Vertice  node) {
-        List<Vertice > adjacentNodes = getNeighbors(node);
-        for (Vertice  target : adjacentNodes) {
-            if (getShortestDistance(target) > getShortestDistance(node)
+        List<Vertice > nodosAdyacentes = getVecinos(node);
+        for (Vertice  target : nodosAdyacentes) {
+            if (getMinDistancia(target) > getMinDistancia(node)
                     + getDistance(node, target)) {
-                distance.put(target, getShortestDistance(node)
+                distance.put(target, getMinDistancia(node)
                         + getDistance(node, target));
-                predecessors.put(target, node);
-                unSettledNodes.add(target);
+                previos.put(target, node);
+                noColocados.add(target);
             }
         }
         
@@ -57,16 +56,16 @@ public class Dijkstra {
     }
 
     private int getDistance(Vertice  node, Vertice  target) {
-        for (Arista edge : aristas) {
-            if (edge.getVertice1().equals(node)
-                    && edge.getVertice2().equals(target)) {
-                return edge.getPeso();
+        for (Arista arista : aristas) {
+            if (arista.getVertice1().equals(node)
+                    && arista.getVertice2().equals(target)) {
+                return arista.getPeso();
             }
         }
         throw new RuntimeException("Should not happen");
     }
 
-    private List<Vertice > getNeighbors(Vertice  node) {
+    private List<Vertice > getVecinos(Vertice  node) {
         List<Vertice > vecinos = new ArrayList<Vertice>();
         for (Arista edge : aristas) {
             if (edge.getVertice1().equals(node)
@@ -83,7 +82,7 @@ public class Dijkstra {
             if (minimum == null) {
                 minimum = vertex;
             } else {
-                if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
+                if (getMinDistancia(vertex) < getMinDistancia(minimum)) {
                     minimum = vertex;
                 }
             }
@@ -92,10 +91,10 @@ public class Dijkstra {
     }
 
     private boolean isSettled(Vertice  vertex) {
-        return settledNodes.contains(vertex);
+        return colocados.contains(vertex);
     }
 
-    private int getShortestDistance(Vertice  destination) {
+    private int getMinDistancia(Vertice  destination) {
         Integer d = distance.get(destination);
         if (d == null) {
             return Integer.MAX_VALUE;
@@ -105,22 +104,19 @@ public class Dijkstra {
     }
 
     /*
-     * This method returns the path from the source to the selected target and
-     * NULL if no path exists
+     * NULL si no hay ruta
      */
-    public LinkedList<Vertice> getPath(Vertice  target) {
+    public LinkedList<Vertice> getRuta(Vertice  target) {
         LinkedList<Vertice > path = new LinkedList<Vertice >();
         Vertice  step = target;
-        // check if a path exists
-        if (predecessors.get(step) == null) {
+        if (previos.get(step) == null) {
             return null;
         }
         path.add(step);
-        while (predecessors.get(step) != null) {
-            step = predecessors.get(step);
+        while (previos.get(step) != null) {
+            step = previos.get(step);
             path.add(step);
         }
-        // Put it into the correct order
         Collections.reverse(path);
         return path;
     }
