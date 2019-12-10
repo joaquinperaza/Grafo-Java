@@ -8,7 +8,7 @@ public class Obligatorio {
 
    
     public static void main(String[] args) {
-        
+       /* 
         Grafo miGrafo = new Grafo();
        
         miGrafo.insertarVertice(new Vertice("Charruas y Setembrino"), true);
@@ -69,7 +69,7 @@ public class Obligatorio {
         miGrafo.buscarRuta("Escuela 94", "Colegio y Liceo Nuestra Señora del Huerto");
         
        
-        
+        */
     }
     
 }
