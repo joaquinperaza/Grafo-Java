@@ -79,11 +79,29 @@ public class PantallaPrincipañ extends javax.swing.JFrame {
         Arista Cuadra14 = miGrafo.insertarArista(miGrafo.getVertice("Herrera y Florida"), miGrafo.getVertice("Florida y 19 de abril"), 1);
         Arista Cuadra15 = miGrafo.insertarArista(miGrafo.getVertice("Florida y 19 de abril"), miGrafo.getVertice("Uruguay y 19 de abril"), 1);
         List<Object> lista = miGrafo.obtenerListadoPOI(miGrafo.htPOIxNombre);
-        
+        //Manzana 6
+        miGrafo.insertarVertice(new Vertice("Montevideo y Florida"), true);//12
+        Arista Cuadra16 = miGrafo.insertarArista(miGrafo.getVertice("Montevideo y Uruguay"), miGrafo.getVertice("Montevideo y Florida"), 1);
+        Arista Cuadra17 = miGrafo.insertarArista(miGrafo.getVertice("Florida y 19 de abril"), miGrafo.getVertice("Montevideo y Florida"), 1);
+        POI cup=new POI();
+        cup.setCuadra(Cuadra16);
+        cup.setEsquina_mas_cercana(miGrafo.getVertice("Montevideo y Florida"));
+        miGrafo.insertarPOI("Centro Universitario de Paysandú", cup);
+        //MAnzana 7
+        miGrafo.insertarVertice(new Vertice("33 y Florida"), true);//12
+        Arista Cuadra18= miGrafo.insertarArista(miGrafo.getVertice("33 y Florida"), miGrafo.getVertice("Uruguay y 33"), 1);
+        Arista Cuadra19 = miGrafo.insertarArista(miGrafo.getVertice("Montevideo y Florida"), miGrafo.getVertice("33 y Florida"), 1);
+        // Manzana 8
+        miGrafo.insertarVertice(new Vertice("Setembrino y Florida"), true);
+        Arista Cuadra20= miGrafo.insertarArista(miGrafo.getVertice("33 y Florida"), miGrafo.getVertice("Setembrino y Florida"), 1);
+        Arista Cuadra21 = miGrafo.insertarArista(miGrafo.getVertice("Uruguay y Setembrino"), miGrafo.getVertice("Setembrino y Florida"), 1);
+        POI ccp=new POI();
+        ccp.setCuadra(Cuadra16);
+        ccp.setEsquina_mas_cercana(miGrafo.getVertice("Setembrino y Florida"));
+        miGrafo.insertarPOI("Centro Comercial de Paysandú", ccp);
         for (Object j : lista){
             jComboBox1.addItem(j.toString());
             jComboBox2.addItem(j.toString());
-            
         }
         
     }
