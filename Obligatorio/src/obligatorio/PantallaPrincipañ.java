@@ -78,7 +78,7 @@ public class PantallaPrincipañ extends javax.swing.JFrame {
         miGrafo.insertarPOI("Colegio y Liceo Nuestra Señora del Huerto", ColegioYLiceo_Huerto);
         Arista Cuadra14 = miGrafo.insertarArista(miGrafo.getVertice("Herrera y Florida"), miGrafo.getVertice("Florida y 19 de abril"), 1);
         Arista Cuadra15 = miGrafo.insertarArista(miGrafo.getVertice("Florida y 19 de abril"), miGrafo.getVertice("Uruguay y 19 de abril"), 1);
-        List<Object> lista = miGrafo.obtenerListadoPOI(miGrafo.htPOIxNombre);
+        
         //Manzana 6
         miGrafo.insertarVertice(new Vertice("Montevideo y Florida"), true);//12
         Arista Cuadra16 = miGrafo.insertarArista(miGrafo.getVertice("Montevideo y Uruguay"), miGrafo.getVertice("Montevideo y Florida"), 1);
@@ -99,6 +99,7 @@ public class PantallaPrincipañ extends javax.swing.JFrame {
         ccp.setCuadra(Cuadra16);
         ccp.setEsquina_mas_cercana(miGrafo.getVertice("Setembrino y Florida"));
         miGrafo.insertarPOI("Centro Comercial de Paysandú", ccp);
+        List<Object> lista = miGrafo.obtenerListadoPOI(miGrafo.htPOIxNombre);
         for (Object j : lista){
             jComboBox1.addItem(j.toString());
             jComboBox2.addItem(j.toString());
